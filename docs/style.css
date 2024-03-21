@@ -21,6 +21,11 @@ body {
     padding: 3vh;
 }
 
+.navbar_toggle {
+    font-size: 21px;
+    display: none;
+}
+
 .title {
     float: left;
     font-size: 21px;
@@ -109,7 +114,7 @@ h2 {
 }
 
 .featured_image img {
-    max-width: 400px;
+    max-width: 20vw;
     margin-right: 2vw;
     margin-top: 10vh;
 }
@@ -119,4 +124,29 @@ h2 {
     margin: 0 auto;
     max-width: 50vw;
     color: #DDDDDD;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .main, .header, .footer {
+        max-width: 82vw;
+    }
+
+    .header_links {
+        display: none;
+    }
+
+    .description {
+        max-width: 82vw;
+        min-height: 20vh;
+        margin-top: 12.5vh;
+    }
+
+    .navbar_toggle {
+        display: contents;
+        
+    }
+
+
+
 }
