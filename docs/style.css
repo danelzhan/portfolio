@@ -28,7 +28,9 @@ body {
 
 .title {
     float: left;
-    font-size: 21px;
+    max-width: 3vw;
+    min-width: 60px;
+    padding-left: 1vw;
 }
 
 .header_links {
@@ -63,6 +65,14 @@ body {
     margin: 0 auto;
     max-width: 50vw;
     color: #DDDDDD;
+}
+
+.profile_image {
+    float: left;
+    max-width: 15vw;
+    min-width: 300px;
+    margin-top: -8vh;
+    margin-left: 5vw;
 }
 
 .description {
@@ -126,7 +136,7 @@ h2 {
     color: #DDDDDD;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1050px) {
 
     .main, .header, .footer {
         max-width: 82vw;
