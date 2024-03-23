@@ -16,6 +16,7 @@ body {
 .header {
     margin: 0 auto;
     max-width: 50vw;
+    min-width: 800px;
     min-height: 8vh;
     color: #DDDDDD;
     padding: 3vh;
@@ -65,23 +66,34 @@ body {
     margin: 0 auto;
     max-width: 50vw;
     color: #DDDDDD;
-}
-
-.profile_image {
-    float: left;
-    max-width: 15vw;
-    min-width: 300px;
-    margin-top: -8vh;
-    margin-left: 5vw;
+    min-width: 800px;
 }
 
 .description {
     max-width: 21vw;
+    min-width: 400px;
     text-align: justify;
     min-height: 30vh;
     margin-right: 1vw;
     margin-left: auto;
     margin-top: 12.5vh;
+}
+
+.avatar_parent {
+    float: left;
+    width: 27vw;
+    min-width: 450px; 
+    text-align: center;
+    margin-top: -3vh;
+}
+
+.avatar {
+    font-size: 86px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .bio_1 {
@@ -99,7 +111,7 @@ h2 {
     border-color: #DDDDDD;
     border-radius: 25px;
     border-width: 1px;
-    min-height: 45vh;
+    min-height: 38vh;
     background-color: rgba(221, 221, 221, 0.1);
     margin-top: 4vh;
 }
@@ -107,6 +119,7 @@ h2 {
 .featured_description {
     float: left;
     max-width: 18vw;
+    min-width: 300px;
     margin-left: 2vw;
     margin-top: 16vh;
 }
@@ -133,13 +146,15 @@ h2 {
     padding-top: 2vh;
     margin: 0 auto;
     max-width: 50vw;
+    min-width: 800px;
     color: #DDDDDD;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 900px) {
 
     .main, .header, .footer {
         max-width: 82vw;
+        min-width: 0px;
     }
 
     .header_links {
@@ -149,14 +164,37 @@ h2 {
     .description {
         max-width: 82vw;
         min-height: 20vh;
-        margin-top: 12.5vh;
+        margin-top: 3vh;
+        min-width: none;
     }
 
     .navbar_toggle {
         display: contents;
-        
+        margin-right: 0;
+        border-color: #DDDDDD;
+        border-style: solid;
+        font-size: 100px;
     }
 
+    .featured_description {
+        float: none;
+        margin: 2vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .featured_image {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .avatar_parent {
+        float: none;
+        max-width: 82vh;
+        min-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 }
