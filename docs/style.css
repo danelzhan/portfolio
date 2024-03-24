@@ -4,6 +4,21 @@
     font-family:  "Alata", sans-serif;
 }
 
+.cursor {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.07), transparent 50%);
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms ease;
+}
+
+* :hover > .cursor {
+    opacity: 1;
+}
+
 a {
     text-decoration: none;
     color: #DDDDDD;
@@ -11,6 +26,7 @@ a {
 
 body {
     background-color: #101010;
+    overflow-x: hidden;
 }
 
 .header {
@@ -23,7 +39,9 @@ body {
 }
 
 .navbar_toggle {
-    font-size: 21px;
+    font-size: 29px;
+    padding: 1vh;
+    float: right;
     display: none;
 }
 
@@ -165,15 +183,13 @@ h2 {
         max-width: 82vw;
         min-height: 20vh;
         margin-top: 3vh;
-        min-width: none;
+        min-width: 0px;
     }
 
     .navbar_toggle {
-        display: contents;
-        margin-right: 0;
+        display: block;
         border-color: #DDDDDD;
         border-style: solid;
-        font-size: 100px;
     }
 
     .featured_description {
@@ -181,6 +197,8 @@ h2 {
         margin: 2vw;
         margin-left: auto;
         margin-right: auto;
+        padding: 2vw;
+        max-width: none;
     }
 
     .featured_image {
