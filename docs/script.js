@@ -6,7 +6,7 @@ const cursor = document.getElementById("cursor")
 window.onmousemove = e => {
 
     let x = e.clientX - cursor.offsetWidth / 2;
-    let y = e.clientY - cursor.offsetHeight / 2;
+    let y = e.clientY - cursor.offsetWidth / 2;
 
     cursor.style.transform = "translate(" + x + "px," + y + "px)";
 
