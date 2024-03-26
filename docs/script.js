@@ -1,6 +1,10 @@
 
+
 const featured1 = document.getElementById("featured_work_1");
 const navbarToggle = document.getElementById("navbar_toggle");
+
+const navbar_menu = document.getElementById("header_links");
+
 const cursor = document.getElementById("cursor")
 
 window.onmousemove = e => {
@@ -26,6 +30,5 @@ featured1.addEventListener("click", function() {
 });
 
 navbarToggle.addEventListener("click", function() {
-    console.log("yes");
-    console.log(mouseX + "-" + mouseY);
+navbar_menu.classList.toggle("show");
 });
