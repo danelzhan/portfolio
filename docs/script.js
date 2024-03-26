@@ -26,7 +26,7 @@ window.onmousemove = e => {
 };
 
 featured1.addEventListener("click", function() {
-    window.location.href = "featured_1.html";
+    window.location.href = "construction.html";
 });
 
 navbarToggle.addEventListener("click", function() {

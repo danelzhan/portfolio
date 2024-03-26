@@ -129,10 +129,12 @@ h2 {
 .featured_work :hover {
     transition-duration: 0.2s;
     transform: scale(1.008);
+    background-color: rgba(221, 221, 221, 0.12);
 }
 
 .featured_panel :hover{
     transform: none;
+    background-color: transparent
 }
 
 .featured_panel {
@@ -141,13 +143,14 @@ h2 {
     border-radius: 25px;
     border-width: 1px;
     min-height: 38vh;
-    background-color: rgba(221, 221, 221, 0.1);
+    background-color: rgba(221, 221, 221, 0.08);
     margin-top: 4vh;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
+    cursor: pointer;
 }
 
 .featured_description {
