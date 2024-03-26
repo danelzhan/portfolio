@@ -200,23 +200,33 @@ h2 {
     
 
     .header_links {
-        display: none;
-        flex-direction: column;
-        gap: 2rem;
-        max-width: 82vw;
+		display: grid;
+		grid-template-columns: auto;
+        position: relative;
+		width: 82vw;
+        height: 0vh;
+		z-index: -1;
         opacity: 0;
-        transition-duration: 0.4s;
-        background-color: #DDDDDD;
+        transition: all 0.4s ease;
+        align-items: center;
+        margin-top: -1vh;
+        margin-bottom: -1vh;
     }
 
-    .show {
-        display: contents;
+    .header_links.show {
+        background: #101010;
+        position: relative;
+		opacity: 1;
+		transition: 0.4;
+		z-index: 99;
+		height: 30vh;
+		font-size: 1.6rem;
+        text-align: center;
+		width: 100%;
     }
 
     li {
-        border-style: solid;
-        border-color: #DDDDDD;
-        background-color: red;
+        text-align: center;
     }
 
     .description {
@@ -230,8 +240,6 @@ h2 {
     .navbar_toggle {
         display: block;
         cursor: pointer;
-        border-color: #DDDDDD;
-        border-style: solid;
     }
 
     .featured_panel {
