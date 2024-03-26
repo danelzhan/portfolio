@@ -11,12 +11,12 @@
     background: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.07), transparent 50%);
     position: fixed;
     pointer-events: none;
-    opacity: 0;
+    display: none;
     transition: opacity 500ms ease;
 }
 
 * :hover > .cursor {
-    opacity: 1;
+    display: flex;
 }
 
 a {
@@ -132,14 +132,19 @@ h2 {
     min-height: 38vh;
     background-color: rgba(221, 221, 221, 0.1);
     margin-top: 4vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row
+}
+
+.featured_panel :hover > .cursor {
+    opacity: 0;
 }
 
 .featured_description {
-    float: left;
     max-width: 18vw;
     min-width: 300px;
     margin-left: 2vw;
-    margin-top: 16vh;
 }
 
 .subtitle {
@@ -155,7 +160,7 @@ h2 {
 }
 
 .featured_image img {
-    max-width: 20vw;
+    max-width: 50vh;
     margin-right: 2vw;
     margin-top: 10vh;
 }
@@ -192,19 +197,17 @@ h2 {
         border-style: solid;
     }
 
+    .featured_panel {
+        flex-direction: column;
+    }
+
     .featured_description {
-        float: none;
         margin: 2vw;
-        margin-left: auto;
-        margin-right: auto;
         padding: 2vw;
-        max-width: none;
+        max-width: 0px;
     }
 
     .featured_image {
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .avatar_parent {
