@@ -65,10 +65,11 @@ body {
     display: none;
 }
 
-.header li :hover {
-    text-decoration: underline #F7996E;
+.header_links :hover {
+    text-decoration: underline;
     text-underline-offset: 5px;
     text-decoration-thickness: 2px;
+    text-decoration-color: #F7996E;
 }
 
 #main {
