@@ -1,5 +1,4 @@
 
-
 const featured1 = document.getElementById("featured_work_1");
 const navbarToggle = document.getElementById("navbar_toggle");
 
@@ -32,3 +31,15 @@ featured1.addEventListener("click", function() {
 navbarToggle.addEventListener("click", function() {
 navbar_menu.classList.toggle("show");
 });
+
+const hiddenElements = document.querySelectorAll(".hidden");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+hiddenElements.forEach((element) => observer.observe(element));

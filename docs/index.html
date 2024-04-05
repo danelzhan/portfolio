@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>@import url('https://fonts.googleapis.com/css2?family=Alata&family=Geologica:wght@100..900&family=Habibi&display=swap');</style>   
     <title>zhan</title>
@@ -13,16 +14,16 @@
     
     <div class="cursor" id="cursor"></div>
 
-    <section class="header">
+    <section class="header" style="width: 70vw; display: flex; justify-content: space-between; padding: 20px;">
 
-        <a href="index.html"><img class="title" src="profile_icon.png"></a>
+        <a class="element" href="index.html"><img src="profile_icon.png" style="min-width: 60px; width: 3vw; margin-left: 1vw;"></a>
 
         <div class="navbar_toggle" id="navbar_toggle">
             <i class="fa fa-bars"></i>
         </div>
 
-        <ul class="header_links" id="header_links">
-            <li><a class="selected" href="index.html">experience</a></li>
+        <ul class="header_links element" id="header_links" style="flex-direction: row; justify-content: space-evenly; list-style: none; width: 25vw;">
+            <li><a href="index.html" style="color: #F7996E;">experience</a></li>
             <li><a href="about.html">about</a></li>
             <li><a href="mailto:danielz4734@gmail.com">contact</a></li>
             <li><a href="https://www.linkedin.com/in/daniel-zhang-11941127b/">resume</a></li>
@@ -30,7 +31,7 @@
 
     </section>
 
-    <section class="main">
+    <section id="main">
 
         <section id="landing" style="width: 100%; display: grid; grid-template-columns: 30vw 40vw; grid-template-rows: 50vh;">
 
@@ -45,11 +46,11 @@
 
         </section>
 
+        <p style="color: #F7996E; font-size: 21px;">featured work</p>
+
         <section id="featured">
 
-            <p style="color: #F7996E; font-size: 21px;">featured work</p>
-
-            <div class="featured_panel" id="featured_work_1">
+            <div class="featured_panel hidden" id="featured_work_1">
 
                 <div class="element" style="align-items: start; margin: 30px;">
                     <p style="font-size: 21px;">TutorMD</p>
@@ -63,7 +64,7 @@
 
             </div>
 
-            <div class="featured_panel" id="featured_work_1">
+            <div class="featured_panel hidden" id="featured_work_1">
 
                 <div class="element" style="align-items: start; margin: 30px;">
                     <p style="font-size: 21px;">TutorMD</p>
@@ -82,12 +83,10 @@
     </section>
 
 
-    <div class="footer">
+    <section class="footer" style="width: 70vw;">
         &copy; Daniel Zhang, 2024.
-    </div>
+    </section>
 
 </body>
-
-<script src="script.js"></script> 
 
 </html>

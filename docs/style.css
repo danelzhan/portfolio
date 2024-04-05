@@ -4,6 +4,7 @@
 * {
     font-size: 17px;
     font-family:  "Alata", sans-serif;
+    color: #DDDDDD;
     padding: 0;
     border: 0;
     margin: 0;
@@ -25,6 +26,18 @@
     opacity: 1;
 }
 
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 0.8s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+}
+
+
 a {
     text-decoration: none;
     color: #DDDDDD;
@@ -33,6 +46,9 @@ a {
 body {
     background-color: #101010;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .element {
@@ -42,45 +58,11 @@ body {
     align-items: center;
 }
 
-.header {
-    margin: 0 auto;
-    max-width: 50vw;
-    min-width: 800px;
-    min-height: 8vh;
-    color: #DDDDDD;
-    padding: 3vh;
-}
-
 .navbar_toggle {
     font-size: 29px;
     padding: 1vh;
     float: right;
     display: none;
-}
-
-.title {
-    float: left;
-    max-width: 3vw;
-    min-width: 60px;
-    padding-left: 1vw;
-}
-
-.header_links {
-    float: right;
-    text-align: center;
-}
-
-.header ul {
-    margin-right: 0;
-    margin-left: auto;
-    line-height: 2.5vh;
-}
-
-.header li {
-    text-align: right;
-    list-style-type: none;
-    display: inline-block;
-    margin-left: 1vw;
 }
 
 .header li :hover {
@@ -89,11 +71,7 @@ body {
     text-decoration-thickness: 2px;
 }
 
-.selected {
-    color: #F7996E;
-}
-
-.main {
+#main {
     margin: 0 auto;
     max-width: 70vw;
     color: #DDDDDD;
@@ -108,13 +86,13 @@ body {
     user-select: none;
 }
 
-.featured :hover {
+#featured :hover {
     transition-duration: 0.2s;
     transform: scale(1.008);
     background-color: rgba(221, 221, 221, 0.12);
 }
 
-.featured_panel :hover{
+#featured .featured_panel :hover{
     transform: none;
     background-color: transparent
 }
@@ -128,14 +106,6 @@ body {
     display: grid;
     grid-template-columns: 45% 55%;
     grid-template-rows: 50vh;
-}
-
-.footer {
-    padding-top: 2vh;
-    margin: 0 auto;
-    max-width: 50vw;
-    min-width: 800px;
-    color: #DDDDDD;
 }
 
 /* about page */
