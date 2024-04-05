@@ -4,6 +4,10 @@
 * {
     font-size: 17px;
     font-family:  "Alata", sans-serif;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .cursor {
@@ -29,6 +33,13 @@ a {
 body {
     background-color: #101010;
     overflow-x: hidden;
+}
+
+.element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .header {
@@ -84,30 +95,11 @@ body {
 
 .main {
     margin: 0 auto;
-    max-width: 50vw;
+    max-width: 70vw;
     color: #DDDDDD;
-    min-width: 800px;
 }
 
-.description {
-    max-width: 21vw;
-    min-width: 400px;
-    text-align: justify;
-    min-height: 30vh;
-    margin-right: 1vw;
-    margin-left: auto;
-    margin-top: 12.5vh;
-}
-
-.avatar_parent {
-    float: left;
-    width: 27vw;
-    min-width: 450px; 
-    text-align: center;
-    margin-top: -3vh;
-}
-
-.avatar {
+#avatar {
     font-size: 86px;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -116,17 +108,7 @@ body {
     user-select: none;
 }
 
-.bio_1 {
-    font-size: 21px;
-}
-
-
-h2 {
-    color: #F7996E;
-    font-size: 21px;
-}
-
-.featured_work :hover {
+.featured :hover {
     transition-duration: 0.2s;
     transform: scale(1.008);
     background-color: rgba(221, 221, 221, 0.12);
@@ -138,45 +120,14 @@ h2 {
 }
 
 .featured_panel {
-    border-style: solid;
-    border-color: #DDDDDD;
+    border: 1px solid #DDDDDD;
     border-radius: 25px;
-    border-width: 1px;
-    min-height: 38vh;
+    margin: 25px 0;
     background-color: rgba(221, 221, 221, 0.08);
-    margin-top: 4vh;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px;
     cursor: pointer;
-}
-
-.featured_description {
-    max-width: 18vw;
-    min-width: 300px;
-    margin-left: 2vw;
-    margin-top: 20px;
-}
-
-.subtitle {
-    color: rgba(221, 221, 221, 0.7);
-    line-height: 0px;
-    font-size: 16px;
-    margin: 0;
-    margin-bottom: 2.8vh;   
-}
-
-.featured_image {
-    float: right;
-}
-
-.featured_image img {
-    max-width: 35vh;
-    min-width: 300px;
-    margin-right: 2vw;
-    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: 50vh;
 }
 
 .footer {
