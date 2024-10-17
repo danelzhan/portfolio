@@ -9,28 +9,30 @@
     <title>zhan</title> 
 </head>
 <body>
-    
-    <div class="cursor" id="cursor"></div>
 
-    <div class="header">
+    <section id="header" style="height: 7vh; width: 75vw; justify-content: space-between; align-items: center;
+        border-radius: 2rem; margin: 1rem; padding: 1rem; background-color: rgba(221, 221, 221, 0.12);">
 
-        <a href="index.html"><img class="title" src="profile_icon.png"></a>
+        <div id="header_icon" class="header_element" style="display: flex; justify-content: center; align-items: center;">
+            <img src="profile_icon.png" style="width: 3.5rem;">
+        </div>
 
-        <div class="navbar_toggle" id="navbar_toggle">
+        <div id="header_links_container" class="header_element" style="width: 40%; display: flex; justify-content: center; align-items: center;">
+            <ul id="header_links_list" style=" width: 100%; display: flex; justify-content: space-evenly">
+                <li class="header_link"><a href="index.html">experience</a></li>
+                <li class="header_link"><a style="color: #8DDBE0">about</a></li>
+                <li class="header_link"><a>contact</a></li>
+                <li class="header_link"><a>resume</a></li>
+            </ul>
+        </div>
+
+        <div id="navbar_toggle">
             <i class="fa fa-bars"></i>
         </div>
 
+    </section>
 
-        <ul class="header_links">
-            <li><a href="index.html">experience</a></li>
-            <li><a class="selected" href="about.html">about</a></li>
-            <li><a href="mailto:danielz4734@gmail.com">contact</a></li>
-            <li><a href="https://www.linkedin.com/in/daniel-zhang-11941127b/">resume</a></li>
-        </ul>       
-
-    </div>
-
-    <div class="main">
+    <section id="about_me_text" style="flex-direction: column; height: 80vh; justify-content: center; padding: 3rem; padding-left: 8rem;">
 
         <div class="about_me_images">
             
@@ -38,14 +40,15 @@
 
         <h2>hi, 你好</h2>
         <p>[he|him]</p>
-        <p>i'm currently a senior at mount douglas secondary school, going into computer science and mathematics next year. i have a passion for programming, visual arts, and ux designs.</p>
+        <p>i'm currently a freshman in the university of british columbia, going into computer engineering. i have a passion for programming, visual arts, and ux designs.</p>
 
-    </div>
+    </section>
 
-
+<!--
     <div class="footer">
         &copy; Daniel Zhang, 2024.
     </div>
+-->
 
 </body>
 
