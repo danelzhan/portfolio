@@ -19,8 +19,6 @@ body {
     align-items: center;
 }
 
-section, div {
-}
 
 section {
     height: 40vh;
@@ -83,7 +81,6 @@ section {
 }
 
 .display_card {
-    border-color: #DDDDDD;
     border-radius: 2rem;
     background-color: rgba(221, 221, 221, 0.08);
     cursor: pointer;
@@ -91,8 +88,8 @@ section {
     min-height: 29rem;
     height: fit-content;
     display: grid;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     grid-template-columns: 45% 55%;
-    border: 1px solid white;
 }
 
 #display :nth-child(even) {
@@ -145,8 +142,8 @@ section {
         background-color: rgb(41,41,41);
         transition: all 0.5ms ease;
         width: 75vw;
-        border-left: 1px solid white;
-        border-right: 1px solid white;
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
     }
 
     #header_links_container ul {
@@ -157,13 +154,13 @@ section {
     #header_links_list li:last-child {
         border-bottom-right-radius: 1rem;
         border-bottom-left-radius: 1rem;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     }
 
     #header_links_list li:first-child {
         border-top-right-radius: 1rem;
         border-top-left-radius: 1rem;
-        border-top: 1px solid white;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
     }
 
     #navbar_toggle {

@@ -4,9 +4,17 @@ const navbarLinks = document.getElementById('header_links_list');
 const navbarToggle = document.getElementById('navbar_toggle');
 navbarToggle.addEventListener('click', function () {
     navbarLinks.classList.toggle('show');
-    console.log('clicked');
-    console.log(navbarLinks.classList);
 });
+
+const allElements = document.getElementsByTagName("section");
+for (var element = 0; element < allElements.length; element++) {
+    if (!allElements[element].classList.contains("interactive")) {
+        allElements[element].addEventListener('click', function() {
+            navbarLinks.classList.remove('show');
+        });
+    }
+}
+
 
 // featured work
 
