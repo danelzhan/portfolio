@@ -15,6 +15,19 @@ for (var element = 0; element < allElements.length; element++) {
     }
 }
 
+// scroll animation
+const hiddenElements = document.querySelectorAll(".hidden");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+hiddenElements.forEach((element) => observer.observe(element));
+
 
 // featured work
 const featured1 = document.getElementById("display_card_1");
