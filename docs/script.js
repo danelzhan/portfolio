@@ -17,7 +17,6 @@ for (var element = 0; element < allElements.length; element++) {
 
 
 // featured work
-
 const featured1 = document.getElementById("display_card_1");
 featured1.addEventListener("click", function() {
     window.location.href = "https://www.vphsociety.org";
