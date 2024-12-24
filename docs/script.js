@@ -4,12 +4,19 @@ const navbarLinks = document.getElementById('header_links_list');
 const navbarToggle = document.getElementById('navbar_toggle');
 navbarToggle.addEventListener('click', function () {
     navbarLinks.classList.toggle('show');
-    console.log('clicked');
-    console.log(navbarLinks.classList);
 });
 
-// featured work
+const allElements = document.getElementsByTagName("section");
+for (var element = 0; element < allElements.length; element++) {
+    if (!allElements[element].classList.contains("interactive")) {
+        allElements[element].addEventListener('click', function() {
+            navbarLinks.classList.remove('show');
+        });
+    }
+}
 
+
+// featured work
 const featured1 = document.getElementById("display_card_1");
 featured1.addEventListener("click", function() {
     window.location.href = "https://www.vphsociety.org";
