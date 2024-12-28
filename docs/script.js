@@ -39,3 +39,8 @@ const featured2 = document.getElementById("display_card_2");
 featured2.addEventListener("click", function() {
     window.location.href = "https://danelzhan.github.io/taylorSeries/";
 })
+
+const featured3 = document.getElementById("display_card_3");
+featured3.addEventListener("click", function() {
+    window.location.href = "https://github.com/danelzhan/Avio-s-Realm";
+})
