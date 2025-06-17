@@ -2,5 +2,5 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/portfolio/', // 👈 This must match your repo name exactly!
+  base: '/', // ✅ root of your custom domain
 })
