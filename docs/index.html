@@ -1,104 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script> 
-
-    <title>zhan</title>
-</head>
-<body>
-
-    <section id="header" class="interactive" style="height: 7vh; justify-content: space-between; align-items: center;
-        border-radius: 2rem; margin: 1rem; padding: 1rem; background-color: rgb(41,41,41);">
-
-        <div id="header_icon" class="header_element" style="display: flex; justify-content: center; align-items: center;">
-            <img src="profile_icon.png" style="width: 3.5rem;">
-        </div>
-
-        <div id="header_links_container" class="header_element" style="width: 40%; display: flex; justify-content: center; align-items: center;">
-            <ul id="header_links_list" style=" width: 100%; display: flex; justify-content: space-evenly">
-                <li class="header_link"><a style="color: #8DDBE0">experience</a></li>
-                <li class="header_link"><a href="about.html">about</a></li>
-                <li class="header_link"><a href="https://www.linkedin.com/in/danelzhan/">contact</a></li>
-                <li class="header_link"><a href="images/Daniel_Zhang_Resume-6.pdf">resume</a></li>
-            </ul>
-        </div>
-
-        <div id="navbar_toggle">
-            <i class="fa fa-bars"></i>
-        </div>
-
-    </section>
-
-    <section id="landing_body">
-
-        <section id="landing_hero" style="justify-content: space-between;">
-            <div id="landing_avatar_box" class="element" style="width: 50%;">
-                <h1 id="avatar">(•-•)</h1>
-            </div>
-            
-            <div id="landing_text" class="element" style="flex-direction: column;">
-                <h1 style="margin-right: 2rem;">daniel is a web & software developer, maths explorer, and game enthusiast looking to learn new things!</h1>
-                <p style=" width: 100%; margin-top: 1rem;">studying computer engineering @ the university of british columbia.  <br>currently seeking intern roles for summer 2025.</p>
-            </div>
-        </section>
-
-    </section>
-
-    <section id="display">
-    
-        <p id="display_head" style="margin-left: 1rem; color: #8DDBE0; font-size: 1.25rem; margin-bottom: 1rem;">featured work</p>
-
-        <section class="display_card hidden" id="display_card_1">
-            <div class="display_card_text">
-                <h1>Vancouver Packages for Hope</h1>
-                <p class="display_card_text_subtitle">HTML, CSS, JS</p>
-                <p class="display_card_text_p">Developed a website for Vancouver Packages for Hope,
-                     a non-profit organization that provides essential care packages to under-served communities. 
-                     The website features user-friendly navigation, donation integration, and an informative layout that highlights 
-                     the organization’s mission and events.</p>
-            </div>
-            <div class="display_card_img">
-                <img src="images/VPH.png" width="85%">
-            </div>
-        </section>
-
-        <section class="display_card hidden" id="display_card_3">
-            <div class="display_card_img">
-                <img src="images/Avio's Realm.svg" width="55%">
-            </div>
-            <div class="display_card_text">
-                <h1>Avio's Realm - Platformer Game</h1>
-                <p class="display_card_text_subtitle">Java</p>
-                <p class="display_card_text_p">Developed a 2D platforming game entirely in vanilla Java, 
-                    without using external libraries or game engines. The project involved designing game mechanics, 
-                    creating custom animations, collision detection, and level design. The game featured multiple levels, 
-                    dynamic character movement, and challenges that provided an engaging player experience.</p>
-            </div>
-        </section>
-
-        <section class="display_card hidden" id="display_card_2">
-            <div class="display_card_text">
-                <h1>Brook Taylor Virtual Gallery</h1>
-                <p class="display_card_text_subtitle">Python, HTML, CSS, JS</p>
-                <p class="display_card_text_p">Created an interactive virtual gallery for Brook Taylor, 
-                    an 18th-century mathematician, as part of a school project. The gallery was built using Manim for dynamic 
-                    math visualizations and featured interactive elements that allowed users to explore Taylor’s 
-                    contributions to calculus and mathematical theory.</p>
-            </div>
-            <div class="display_card_img">
-                <img src="images/Taylor.svg" width="75%">
-            </div>
-        </section>
-
-    </section>
-
-    <section id="footer" style="height: 1rem;">
-        &copy; Daniel Zhang, 2024.
-    </section>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dzhan</title>
+  </head>
+  <body>
+    <canvas id="app"></canvas>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
