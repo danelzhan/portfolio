@@ -185,6 +185,16 @@ function drawUI() {
   // button_1
   ctx.fillStyle = tile_color;
   ctx.roundRect(button_1.x, button_1.y, button_1.width, button_1.height, menu_corner_radius);
+  const img = new Image();
+  img.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 140;
+    const imgHeight = 220;
+    const imgX = button_1.x + (button_1.width - imgWidth) / 2;
+    const imgY = button_1.y - 95;
+    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+  };
+  img.src = 'drink_1.png';
 
   // button_2
   ctx.fillStyle = tile_color;
@@ -238,6 +248,16 @@ function project_1() {
   ctx.beginPath();
   ctx.roundRect(project_thumbnail.x, project_thumbnail.y, project_thumbnail.width, project_thumbnail.height, corner_radius);
   ctx.fill();
+  const img = new Image();
+  img.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 180;
+    const imgHeight = 300;
+    const imgX = button_1.x + (button_1.width - imgWidth) / 2 + 9;
+    const imgY = button_1.y - 130;
+    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+  };
+  img.src = 'drink_1.png';
 
   ctx.fillStyle = tile_color;
   ctx.beginPath();
@@ -287,25 +307,25 @@ function project_3() {
 
 function profile() {
 
-  ctx.fillStyle = 'black';
+  ctx.fillStyle = background_color;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = '#007BFF';
+  ctx.fillStyle = tile_color;
   ctx.beginPath();
   ctx.roundRect(profile_panel.x, profile_panel.y, profile_panel.width, profile_panel.height, corner_radius);
   ctx.fill();
 
-  ctx.fillStyle = '#007BFF';
+  ctx.fillStyle = tile_color;
   ctx.beginPath();
   ctx.arc(return_button.x, return_button.y, return_button.radius, 0, Math.PI * 2);
   ctx.fill();
-  
-  ctx.fillStyle = '#007BFF';
+
+  ctx.fillStyle = tile_color;
   ctx.beginPath();
   ctx.arc(info_button.x, info_button.y, info_button.radius, 0, Math.PI * 2);
   ctx.fill();
 
-  ctx.fillStyle = '#007BFF';
+  ctx.fillStyle = tile_color;
   ctx.beginPath();
   ctx.arc(0, 0, 0, 0, 0);
   ctx.fill();
@@ -443,8 +463,7 @@ window.addEventListener('click', (event) => {
           canvasY >= info_button.y - info_button.radius &&
           canvasY <= info_button.y + info_button.radius
         ) {
-          console.log("Info button clicked!");
-          // Show project information
+          window.location.href = "https://github.com/danelzhan/Hweis-Canvas";
         }
 
       } else if (state === "profile") {
