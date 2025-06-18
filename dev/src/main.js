@@ -75,6 +75,7 @@ const video = document.createElement('video');
 video.src = 'hwei_canvas.mp4';
 video.muted = true;
 video.loop = true;
+video.autoplay = true;
 video.playsInline = true;
 video.load();
 video.play();
