@@ -17,6 +17,24 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 camera.position.set(-27, 7, 43);
 
+const camera_sound = new Audio('woosh.mp3');
+camera_sound.volume = 0.6;
+
+function frame_camera() {
+  camera_sound.play();
+  gsap.to(camera.position, {
+    duration: 0.6,
+    x: 0,
+    y: 1.6,
+    z: 22.7,
+    onUpdate: () => {
+      camera.lookAt(0, 0, 0);
+    }
+  });
+
+}
+window.frame_camera = frame_camera;
+
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.maxPolarAngle = 7 * Math.PI / 12;
@@ -454,7 +472,7 @@ function project_layer_1() {
 }
 
 
-window.addEventListener('click', (event) => {
+window.addEventListener('pointerdown', (event) => {
   // Convert screen coords to NDC
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
