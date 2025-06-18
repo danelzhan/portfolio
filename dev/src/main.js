@@ -780,3 +780,18 @@ function animate() {
 }
 
 animate();
+
+function onWindowResize() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  // Resize renderer
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  // Update camera aspect
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+}
+
+window.addEventListener('resize', onWindowResize);
