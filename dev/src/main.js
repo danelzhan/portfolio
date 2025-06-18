@@ -2,7 +2,7 @@ import './style.css'
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { Reflector } from 'three/examples/jsm/objects/Reflector.js';
+import { Reflector } from 'three/examples/jsm/objects/Reflector.js'; 
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -52,6 +52,15 @@ const background_color = '#53F4FF'
 const text_color = 'white';
 const tile_color = "#157A6E";
 const button_height = 180;
+
+let videoPlaying = false;
+const video = document.createElement('video');
+video.src = 'hwei_canvas.mp4';
+video.muted = true;
+video.loop = true;
+video.playsInline = true;
+video.load();
+video.play();
 
 const button_1 = {
   x: 40,
@@ -176,6 +185,7 @@ function drawBanner() {
   }
 }
 
+
 function drawUI() {
 
   ctx.fillStyle = background_color;
@@ -185,28 +195,17 @@ function drawUI() {
   // button_1
   ctx.fillStyle = tile_color;
   ctx.roundRect(button_1.x, button_1.y, button_1.width, button_1.height, menu_corner_radius);
-  const img = new Image();
-  img.onload = () => {
-    // Draw the image (resize to fit)
-    const imgWidth = 140;
-    const imgHeight = 220;
-    const imgX = button_1.x + (button_1.width - imgWidth) / 2;
-    const imgY = button_1.y - 95;
-    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
-  };
-  img.src = 'drink_1.png';
+  ctx.fill();
 
   // button_2
   ctx.fillStyle = tile_color;
   ctx.roundRect(button_2.x, button_2.y, button_2.width, button_2.height, menu_corner_radius);
   ctx.fill();
-  // ctx.fillText("Open", button.x + 30, button.y + 50);
 
   // button_3
   ctx.fillStyle = tile_color;
   ctx.roundRect(button_3.x, button_3.y, button_3.width, button_3.height, menu_corner_radius);
   ctx.fill();
-  // ctx.fillText("Open", button.x + 30, button.y + 50);
 
   // button_4
   ctx.fillStyle = tile_color;
@@ -248,16 +247,6 @@ function project_1() {
   ctx.beginPath();
   ctx.roundRect(project_thumbnail.x, project_thumbnail.y, project_thumbnail.width, project_thumbnail.height, corner_radius);
   ctx.fill();
-  const img = new Image();
-  img.onload = () => {
-    // Draw the image (resize to fit)
-    const imgWidth = 180;
-    const imgHeight = 300;
-    const imgX = button_1.x + (button_1.width - imgWidth) / 2 + 9;
-    const imgY = button_1.y - 130;
-    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
-  };
-  img.src = 'drink_1.png';
 
   ctx.fillStyle = tile_color;
   ctx.beginPath();
@@ -282,7 +271,7 @@ function project_1() {
   ctx.fillStyle = tile_color;
   ctx.beginPath();
   ctx.arc(0, 0, 0, 0, 0);
-  ctx.fill();
+  ctx.fill()
 
   canvasTexture.needsUpdate = true;
 }
@@ -340,6 +329,16 @@ function menu_layer_1() {
 
   const font = '22px sans-serif';
 
+  const img = new Image();
+  img.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 140;
+    const imgHeight = 220;
+    const imgX = button_1.x + (button_1.width - imgWidth) / 2;
+    const imgY = button_1.y - 95;
+    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+  };
+  img.src = 'drink_1.png';
   ctx.fillStyle = text_color;
   ctx.font = font;
   ctx.fillText("Hwei's", 50, 205);
@@ -357,6 +356,67 @@ function menu_layer_1() {
   ctx.fillText("Campus", 350, 225);
 
 }
+
+// default is layer_0;
+// this layer is for project
+function project_layer_1() {
+
+  const img = new Image();
+  img.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 180;
+    const imgHeight = 300;
+    const imgX = button_1.x + (button_1.width - imgWidth) / 2 + 9;
+    const imgY = button_1.y - 140;
+    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+  };
+  img.src = 'drink_1.png';
+
+  const font = '22px sans-serif';
+
+  ctx.fillStyle = text_color;
+  ctx.font = font;
+  ctx.fillText("Hwei's", 50, 230);
+
+  ctx.fillStyle = text_color;
+  ctx.font = font;
+  ctx.fillText("Canvas", 50, 250);
+
+  const return_button = new Image();
+  return_button.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 40;
+    const imgHeight = 40;
+    const imgX = 320;
+    const imgY = 645;
+    ctx.drawImage(return_button, imgX, imgY, imgWidth, imgHeight);
+  };
+  return_button.src = 'return.png';
+
+  const info_button = new Image();
+  info_button.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 50;
+    const imgHeight = 50;
+    const imgX = 395;
+    const imgY = 640;
+    ctx.drawImage(info_button, imgX, imgY, imgWidth, imgHeight);
+  };
+  info_button.src = 'info.png';
+
+  ctx.fillStyle = text_color;
+  ctx.font = font;
+  ctx.fillText("Inspired by the gameplay and thematic ", 60, 360);
+  ctx.fillText("of Hwei from League of Legends,", 60, 390);
+  ctx.fillText("Hwei's Canvas is a 2D roguelike ", 60, 420);
+  ctx.fillText("centered on a custom symbol-drawing", 60, 450);
+  ctx.fillText("spell system, where players cast", 60, 480);
+  ctx.fillText("abilities by drawing predefined patterns.", 60, 510);
+
+  canvasTexture.needsUpdate = true;
+
+}
+
 
 window.addEventListener('click', (event) => {
   // Convert screen coords to NDC
@@ -385,8 +445,9 @@ window.addEventListener('click', (event) => {
           canvasY >= button_1.y &&
           canvasY <= button_1.y + button_1.height
         ) {
-          project_1();
           state = "project_1";
+          project_1();
+          project_layer_1();
         }
 
         if (
@@ -557,11 +618,17 @@ function animate() {
   controls.update();
   //spotLightHelper.update();
   // pointLightHelper.update();
+
+
   if (state === "menu") {
     drawBanner();
     menu_layer_1();
+  } else if (state === "project_1") {
+    project_layer_1();
+    ctx.drawImage(video, 220, 75, 230, 170);
   }
  
   renderer.render(scene, camera);
 }
+
 animate();
