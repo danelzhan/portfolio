@@ -69,6 +69,20 @@ const linkedin_button_profile = new Image();
 linkedin_button_profile.src = 'linkedin.png';
 const pfp = new Image();
 pfp.src = 'pfp.png';
+const restock = new Image();
+restock.src = 'restock.png';
+const drink_1 = new Image();
+drink_1.src = 'drink_1.png';
+const drink_2 = new Image();
+drink_2.src = 'drink_2.webp';
+const drink_3 = new Image();
+drink_3.src = 'drink_3.webp';
+const drink_4 = new Image();
+drink_4.src = 'drink_4.png';
+const drink_5 = new Image();
+drink_5.src = 'drink_5.webp';
+const drink_6 = new Image();
+drink_6.src = 'drink_6.png';
 
 let videoPlaying = false;
 const video = document.createElement('video');
@@ -348,25 +362,49 @@ function menu_layer_1() {
 
   const font = '22px sans-serif';
 
-  const img = new Image();
-  img.onload = () => {
-    // Draw the image (resize to fit)
-    const imgWidth = 140;
-    const imgHeight = 220;
-    const imgX = button_1.x + (button_1.width - imgWidth) / 2;
-    const imgY = button_1.y - 95;
-    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
-  };
-  img.src = 'drink_1.png';
+  var imgWidth = 140;
+  var imgHeight = 220;
+  var imgX = button_1.x + (button_1.width - imgWidth) / 2;
+  var imgY = button_1.y - 95;
+  ctx.drawImage(drink_1, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 95;
+  imgHeight = 138;
+  imgX = button_2.x + 13;
+  imgY = button_2.y - 9;
+  ctx.drawImage(drink_2, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 130;
+  imgHeight = 125;
+  imgX = button_3.x - 5;
+  imgY = button_3.y + 10;
+  ctx.drawImage(drink_3, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 150;
+  imgHeight = 160;
+  imgX = button_4.x - 15;
+  imgY = button_4.y - 5;
+  ctx.drawImage(drink_4, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 150;
+  imgHeight = 150;
+  imgX = button_5.x - 15;
+  imgY = button_5.y + 3;
+  ctx.drawImage(drink_5, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 90;
+  imgHeight = 140;
+  imgX = button_6.x + 15;
+  imgY = button_6.y + 10;
+  ctx.drawImage(drink_6, imgX, imgY, imgWidth, imgHeight);
 
   ctx.fillStyle = text_color;
   ctx.font = font;
   ctx.fillText("Hwei's", 50, 205);
-
   ctx.fillText("Canvas", 50, 225);
-
-  ctx.fillText("Bionics", 200, 225);
+  ctx.fillText("Spawn", 200, 225);
   ctx.fillText("Campus", 350, 225);
+  ctx.fillText("Bionics", 50, 435);
 
   ctx.font = "64px sans-serif";
   ctx.fillText("ᕦ(• - •)ᕤ", 128, 625);
@@ -374,8 +412,41 @@ function menu_layer_1() {
   ctx.font = font;
   ctx.fillText("About Me", 203, 665);
 
- 
+}
 
+// restocking layer
+function menu_layer_2() {
+
+  var imgWidth = 120;
+  var imgHeight = 220;
+  var imgX = button_2.x;
+  var imgY = button_2.y - 20;
+  ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 120;
+  imgHeight = 220;
+  imgX = button_3.x;
+  imgY = button_3.y - 20;
+  ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 120;
+  imgHeight = 220;
+  imgX = button_4.x;
+  imgY = button_4.y - 20;
+  ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
+  
+  imgWidth = 120;
+  imgHeight = 220;
+  imgX = button_5.x;
+  imgY = button_5.y - 20;
+  ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 120;
+  imgHeight = 220;
+  imgX = button_6.x;
+  imgY = button_6.y - 20;
+  ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
+ 
 }
 
 function profile_layer_1() {
@@ -696,6 +767,7 @@ function animate() {
   if (state === "menu") {
     drawBanner();
     menu_layer_1();
+    menu_layer_2();
   } else if (state === "project_1") {
     project_layer_1();
     ctx.drawImage(video, 220, 75, 230, 170);
