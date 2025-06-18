@@ -15,24 +15,16 @@ const mouse = new THREE.Vector2();
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-camera.position.set(-20, 5, 30);
+camera.position.set(-27, 7, 43);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
+controls.maxPolarAngle = 7 * Math.PI / 12;
+controls.maxDistance = 70;
 
 // Optionally, add ambient light for softer shadows
 const ambientLight = new THREE.AmbientLight(0xffe692, 0.08);
 scene.add(ambientLight);
-
-// // Add a spotlight
-// const spotLight = new THREE.SpotLight(0xffffff, 1);
-// spotLight.position.set(15, 60, 35);
-// spotLight.angle = Math.PI / 6;
-// spotLight.penumbra = 0.2;
-// spotLight.castShadow = true;
-// scene.add(spotLight);
-// const spotLightHelper = new THREE.SpotLightHelper(spotLight);
-// scene.add(spotLightHelper);
 
 var vending_machine;
 var streetlight;
@@ -52,6 +44,13 @@ const background_color = '#53F4FF'
 const text_color = 'white';
 const tile_color = "#157A6E";
 const button_height = 180;
+
+const return_button_profile = new Image();
+return_button_profile.src = 'return.png';
+const linkedin_button_profile = new Image();
+linkedin_button_profile.src = 'linkedin.png';
+const pfp = new Image();
+pfp.src = 'pfp.png';
 
 let videoPlaying = false;
 const video = document.createElement('video');
@@ -146,9 +145,9 @@ var info_button = {
 
 var profile_panel = {
   x: 40,
-  y: 40 + top_margin,
+  y: 20 + top_margin,
   width: 420,
-  height: 440
+  height: 570
 }
 
 
@@ -323,6 +322,7 @@ function profile() {
 
 }
 
+
 // default is layer_0;
 // this layer is for menu text
 function menu_layer_1() {
@@ -357,6 +357,42 @@ function menu_layer_1() {
 
 }
 
+function profile_layer_1() {
+
+  const font = '22px sans-serif';
+
+  let imgWidth = 40;
+  let imgHeight = 40;
+  let imgX = 320;
+  let imgY = 645;
+  ctx.drawImage(return_button_profile, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 35;
+  imgHeight = 35;
+  imgX = 403;
+  imgY = 648;
+  ctx.drawImage(linkedin_button_profile, imgX, imgY, imgWidth, imgHeight);
+
+  imgWidth = 360;
+  imgHeight = 400;
+  imgX = 75;
+  imgY = -10;
+  ctx.drawImage(pfp, imgX, imgY, imgWidth, imgHeight);
+
+  ctx.fillStyle = text_color;
+  ctx.font = "36px sans-serif";
+  ctx.fillText("hi, 你好", 60, 385);
+
+  ctx.font = font;
+  ctx.fillText("i'm currently a sophomore in the ", 60, 425);
+  ctx.fillText("university of british columbia, ", 60, 455);
+  ctx.fillText("studying computer engineering.", 60, 485);
+  ctx.fillText("whilst off campus, you can find me ", 60, 515);
+  ctx.fillText("being a big back, playing tennis,", 60, 545);
+  ctx.fillText("or on league of legends.", 60, 575);
+
+}
+
 // default is layer_0;
 // this layer is for project
 function project_layer_1() {
@@ -365,7 +401,7 @@ function project_layer_1() {
   img.onload = () => {
     // Draw the image (resize to fit)
     const imgWidth = 180;
-    const imgHeight = 300;
+    const imgHeight = 294;
     const imgX = button_1.x + (button_1.width - imgWidth) / 2 + 9;
     const imgY = button_1.y - 140;
     ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
@@ -447,7 +483,6 @@ window.addEventListener('click', (event) => {
         ) {
           state = "project_1";
           project_1();
-          project_layer_1();
         }
 
         if (
@@ -501,8 +536,8 @@ window.addEventListener('click', (event) => {
           canvasY >= bottom_island.y &&
           canvasY <= bottom_island.y + bottom_island.height
         ) {
-          profile();
           state = "profile";
+          profile();
         }
 
       } else if (state === "project_1") {
@@ -538,6 +573,13 @@ window.addEventListener('click', (event) => {
           drawUI();
           canvasTexture.needsUpdate = true;
           state = "menu";
+        } else if (
+          canvasX >= info_button.x - info_button.radius &&
+          canvasX <= info_button.x + info_button.radius &&
+          canvasY >= info_button.y - info_button.radius &&
+          canvasY <= info_button.y + info_button.radius
+        ) {
+          window.location.href = "https://www.linkedin.com/in/danelzhan/";
         }
 
       }
@@ -551,12 +593,10 @@ window.addEventListener('click', (event) => {
 loader.load(
   'vending_machine.glb',
   function (glb) {
-    console.log(glb);
     vending_machine = glb.scene;
     vending_machine.scale.set(10, 10, 10); // Adjust scale as needed
     vending_machine.position.set(0, -20, 0); // Adjust position as needed
     vending_machine.traverse((child) => {
-      console.log("child");
       if (child.isMesh) {
           if (child.material && child.material.type === 'MeshBasicMaterial') {
             child.material = new THREE.MeshStandardMaterial({ color: child.material.color });
@@ -580,7 +620,6 @@ scene.add(pointLight);
 loader.load(
   'streetlight.glb',
   function (glb) {
-    console.log(glb);
     streetlight = glb.scene;
     streetlight.scale.set(60, 60, 60); // Adjust scale as needed
     streetlight.position.set(18, -20, 10); // Adjust position as needed
@@ -607,7 +646,7 @@ const reflectiveFloor = new Reflector(floorGeometry, {
   clipBias: 0.003,
   textureWidth: window.innerWidth * window.devicePixelRatio,
   textureHeight: window.innerHeight * window.devicePixelRatio,
-  color: 0x222222,
+  color: 0x333333,
 });
 reflectiveFloor.rotation.x = -Math.PI / 2; // rotate to lay flat
 reflectiveFloor.position.y = -20.2; // adjust as needed
@@ -626,7 +665,10 @@ function animate() {
   } else if (state === "project_1") {
     project_layer_1();
     ctx.drawImage(video, 220, 75, 230, 170);
+  } else if (state === "profile") {
+    profile_layer_1();
   }
+  // console.log(camera.position);
  
   renderer.render(scene, camera);
 }
