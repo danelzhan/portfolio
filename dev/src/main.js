@@ -358,21 +358,23 @@ function menu_layer_1() {
     ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
   };
   img.src = 'drink_1.png';
+
   ctx.fillStyle = text_color;
   ctx.font = font;
   ctx.fillText("Hwei's", 50, 205);
 
-  ctx.fillStyle = text_color;
-  ctx.font = font;
   ctx.fillText("Canvas", 50, 225);
 
-  ctx.fillStyle = text_color;
-  ctx.font = font;
   ctx.fillText("Bionics", 200, 225);
-
-  ctx.fillStyle = text_color;
-  ctx.font = font;
   ctx.fillText("Campus", 350, 225);
+
+  ctx.font = "64px sans-serif";
+  ctx.fillText("ᕦ(• - •)ᕤ", 128, 625);
+
+  ctx.font = font;
+  ctx.fillText("About Me", 203, 665);
+
+ 
 
 }
 
@@ -472,6 +474,8 @@ function project_layer_1() {
 
 }
 
+const tap_sound = new Audio("tap.mp3");
+tap_sound.volume = 0.04;
 
 window.addEventListener('pointerdown', (event) => {
   // Convert screen coords to NDC
@@ -502,6 +506,7 @@ window.addEventListener('pointerdown', (event) => {
         ) {
           state = "project_1";
           project_1();
+          tap_sound.play();
         }
 
         if (
@@ -511,6 +516,7 @@ window.addEventListener('pointerdown', (event) => {
           canvasY <= button_2.y + button_2.height
         ) {
           console.log("Button 2 clicked!");
+          tap_sound.play();
         }
 
         if (
@@ -520,6 +526,7 @@ window.addEventListener('pointerdown', (event) => {
           canvasY <= button_3.y + button_3.height
         ) {
           console.log("Button 3 clicked!");
+          tap_sound.play();
         }
 
         if (
@@ -529,6 +536,7 @@ window.addEventListener('pointerdown', (event) => {
           canvasY <= button_4.y + button_4.height
         ) {
           console.log("Button 4 clicked!");
+          tap_sound.play();
         }
 
         if (
@@ -538,6 +546,7 @@ window.addEventListener('pointerdown', (event) => {
           canvasY <= button_5.y + button_5.height
         ) {
           console.log("Button 5 clicked!");
+          tap_sound.play();
         }
 
         if (
@@ -547,6 +556,7 @@ window.addEventListener('pointerdown', (event) => {
           canvasY <= button_6.y + button_6.height
         ) {
           console.log("Button 6 clicked!");
+          tap_sound.play();
         }
 
         if (
@@ -557,6 +567,7 @@ window.addEventListener('pointerdown', (event) => {
         ) {
           state = "profile";
           profile();
+          tap_sound.play();
         }
 
       } else if (state === "project_1") {
@@ -570,6 +581,7 @@ window.addEventListener('pointerdown', (event) => {
           drawUI();
           canvasTexture.needsUpdate = true;
           state = "menu";
+          tap_sound.play();
         }
 
         if (
@@ -578,6 +590,7 @@ window.addEventListener('pointerdown', (event) => {
           canvasY >= info_button.y - info_button.radius &&
           canvasY <= info_button.y + info_button.radius
         ) {
+          tap_sound.play();
           window.location.href = "https://github.com/danelzhan/Hweis-Canvas";
         }
 
@@ -592,12 +605,14 @@ window.addEventListener('pointerdown', (event) => {
           drawUI();
           canvasTexture.needsUpdate = true;
           state = "menu";
+          tap_sound.play();
         } else if (
           canvasX >= info_button.x - info_button.radius &&
           canvasX <= info_button.x + info_button.radius &&
           canvasY >= info_button.y - info_button.radius &&
           canvasY <= info_button.y + info_button.radius
         ) {
+          tap_sound.play();
           window.location.href = "https://www.linkedin.com/in/danelzhan/";
         }
 
