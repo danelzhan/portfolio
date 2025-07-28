@@ -348,9 +348,38 @@ function project_2() {
 
 function project_3() {
   
-  ctx.fillStyle = 'black';
+ctx.fillStyle = background_color;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.roundRect(project_thumbnail.x, project_thumbnail.y, project_thumbnail.width, project_thumbnail.height, corner_radius);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.roundRect(project_banner.x, project_banner.y, project_banner.width, project_banner.height, corner_radius);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.roundRect(project_description.x, project_description.y, project_description.width, project_description.height, corner_radius);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.arc(return_button.x, return_button.y, return_button.radius, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.arc(info_button.x, info_button.y, info_button.radius, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.arc(0, 0, 0, 0, 0);
+  ctx.fill()
 
   canvasTexture.needsUpdate = true;
 }
@@ -432,7 +461,7 @@ function menu_layer_1() {
   ctx.fillText("Hwei's", 50, 205);
   ctx.fillText("Canvas", 50, 225);
   ctx.fillText("Spawn", 200, 225);
-  ctx.fillText("Campus", 350, 225);
+  ctx.fillText("Prescriptify", 350, 225);
   ctx.fillText("Bionics", 50, 435);
 
   ctx.font = "64px sans-serif";
@@ -451,11 +480,11 @@ function menu_layer_2() {
   var imgX
   var imgY
 
-  imgWidth = 120;
-  imgHeight = 220;
-  imgX = button_3.x;
-  imgY = button_3.y - 20;
-  ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
+  // imgWidth = 120;
+  // imgHeight = 220;
+  // imgX = button_3.x;
+  // imgY = button_3.y - 20;
+  // ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
 
   imgWidth = 120;
   imgHeight = 220;
@@ -692,7 +721,8 @@ window.addEventListener('pointerdown', (event) => {
           canvasY >= button_3.y &&
           canvasY <= button_3.y + button_3.height
         ) {
-          console.log("Button 3 clicked!");
+          state = "project_3";
+          project_3()
           tap_sound.play();
         }
 
@@ -783,6 +813,30 @@ window.addEventListener('pointerdown', (event) => {
         ) {
           tap_sound.play();
           window.location.href = "https://getspawn.com/";
+        }
+
+      } else if (state === "project_3") {
+
+        if (
+          canvasX >= return_button.x - return_button.radius &&
+          canvasX <= return_button.x + return_button.radius &&
+          canvasY >= return_button.y - return_button.radius &&
+          canvasY <= return_button.y + return_button.radius
+        ) {
+          drawUI();
+          canvasTexture.needsUpdate = true;
+          state = "menu";
+          tap_sound.play();
+        }
+
+        if (
+          canvasX >= info_button.x - info_button.radius &&
+          canvasX <= info_button.x + info_button.radius &&
+          canvasY >= info_button.y - info_button.radius &&
+          canvasY <= info_button.y + info_button.radius
+        ) {
+          tap_sound.play();
+          window.location.href = "https://devpost.com/software/scriptshield";
         }
 
       } else if (state === "profile") {
@@ -893,6 +947,8 @@ function animate() {
     ctx.drawImage(video, 220, 75, 230, 170);
   } else if (state === "project_2") {
     project_layer_2();
+  } else if (state === "project_3") {
+
   } else if (state === "profile") {
     profile_layer_1();
   }
