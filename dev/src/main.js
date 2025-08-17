@@ -94,6 +94,15 @@ video.playsInline = true;
 video.load();
 video.play();
 
+const video2 = document.createElement('video');
+video2.src = 'perscriptify.mp4';
+video2.muted = true;
+video2.loop = true;
+video2.autoplay = true;
+video2.playsInline = true;
+video2.load();
+video2.play();
+
 const button_1 = {
   x: 40,
   y: 40 + top_margin,
@@ -669,6 +678,62 @@ function project_layer_2() {
 
 }
 
+function project_layer_3() {
+
+  const img = new Image();
+  img.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 120;
+    const imgHeight = 150;
+    const imgX = button_1.x + (button_1.width - imgWidth) / 2 + 9;
+    const imgY = button_1.y + 20;
+    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+  };
+  img.src = 'drink_3.webp';
+
+  const font = '22px sans-serif';
+
+  ctx.fillStyle = text_color;
+  ctx.font = font;
+  ctx.fillText("Perscriptify", 50, 250);
+
+  const return_button = new Image();
+  return_button.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 40;
+    const imgHeight = 40;
+    const imgX = 320;
+    const imgY = 645;
+    ctx.drawImage(return_button, imgX, imgY, imgWidth, imgHeight);
+  };
+  return_button.src = 'return.png';
+
+  const info_button = new Image();
+  info_button.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 50;
+    const imgHeight = 50;
+    const imgX = 395;
+    const imgY = 640;
+    ctx.drawImage(info_button, imgX, imgY, imgWidth, imgHeight);
+  };
+  info_button.src = 'info.png';
+
+  ctx.fillStyle = text_color;
+  ctx.font = font;
+  ctx.fillText("Prescriptify is a React, Flask, and ", 60, 360);
+  ctx.fillText("MongoDB app that helps users detect", 60, 390);
+  ctx.fillText("harmful drug and food interactions.", 60, 420);
+  ctx.fillText("It uses Gemini to simplify complex data", 60, 450);
+  ctx.fillText("into clear alerts and visual summaries,", 60, 480);
+  ctx.fillText("while Auth0 authentication and ", 60, 510);
+  ctx.fillText("encrypted storage keep user information ", 60, 540);
+  ctx.fillText("secure.", 60, 570);
+
+  canvasTexture.needsUpdate = true;
+
+}
+
 const tap_sound = new Audio("tap.mp3");
 tap_sound.volume = 0.04;
 
@@ -948,7 +1013,8 @@ function animate() {
   } else if (state === "project_2") {
     project_layer_2();
   } else if (state === "project_3") {
-
+    project_layer_3();
+    ctx.drawImage(video2, 220, 75, 230, 170);
   } else if (state === "profile") {
     profile_layer_1();
   }
