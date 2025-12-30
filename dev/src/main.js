@@ -357,7 +357,45 @@ function project_2() {
 
 function project_3() {
   
-ctx.fillStyle = background_color;
+  ctx.fillStyle = background_color;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.roundRect(project_thumbnail.x, project_thumbnail.y, project_thumbnail.width, project_thumbnail.height, corner_radius);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.roundRect(project_banner.x, project_banner.y, project_banner.width, project_banner.height, corner_radius);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.roundRect(project_description.x, project_description.y, project_description.width, project_description.height, corner_radius);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.arc(return_button.x, return_button.y, return_button.radius, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.arc(info_button.x, info_button.y, info_button.radius, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = tile_color;
+  ctx.beginPath();
+  ctx.arc(0, 0, 0, 0, 0);
+  ctx.fill()
+
+  canvasTexture.needsUpdate = true;
+}
+
+function project_4() {
+  
+  ctx.fillStyle = background_color;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = tile_color;
@@ -471,7 +509,7 @@ function menu_layer_1() {
   ctx.fillText("Canvas", 50, 225);
   ctx.fillText("Spawn", 200, 225);
   ctx.fillText("Prescriptify", 350, 225);
-  ctx.fillText("Bionics", 50, 435);
+  ctx.fillText("SocialCRM", 50, 435);
 
   ctx.font = "64px sans-serif";
   ctx.fillText("ᕦ(• - •)ᕤ", 128, 625);
@@ -495,11 +533,11 @@ function menu_layer_2() {
   // imgY = button_3.y - 20;
   // ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
 
-  imgWidth = 120;
-  imgHeight = 220;
-  imgX = button_4.x;
-  imgY = button_4.y - 20;
-  ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
+  // imgWidth = 120;
+  // imgHeight = 220;
+  // imgX = button_4.x;
+  // imgY = button_4.y - 20;
+  // ctx.drawImage(restock, imgX, imgY, imgWidth, imgHeight);
   
   imgWidth = 120;
   imgHeight = 220;
@@ -734,6 +772,74 @@ function project_layer_3() {
 
 }
 
+function project_layer_4() {
+
+  const img = new Image();
+  img.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 120;
+    const imgHeight = 180;
+    const imgX = button_1.x + (button_1.width - imgWidth) / 2 + 9;
+    const imgY = button_1.y;
+    ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
+  };
+  img.src = 'drink_4.png';
+
+  const font = '22px sans-serif';
+
+  ctx.fillStyle = text_color;
+  ctx.font = font;
+  ctx.fillText("SocialCRM", 50, 250);
+
+  const spawn_head = new Image();
+  spawn_head.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 230;
+    const imgHeight = 180;
+    const imgX = 220;
+    const imgY = 70;
+    ctx.drawImage(spawn_head, imgX, imgY, imgWidth, imgHeight);
+  };
+  spawn_head.src = 'social_crm.jpg';
+
+  const return_button = new Image();
+  return_button.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 40;
+    const imgHeight = 40;
+    const imgX = 320;
+    const imgY = 645;
+    ctx.drawImage(return_button, imgX, imgY, imgWidth, imgHeight);
+  };
+  return_button.src = 'return.png';
+
+  const info_button = new Image();
+  info_button.onload = () => {
+    // Draw the image (resize to fit)
+    const imgWidth = 50;
+    const imgHeight = 50;
+    const imgX = 395;
+    const imgY = 640;
+    ctx.drawImage(info_button, imgX, imgY, imgWidth, imgHeight);
+  };
+  info_button.src = 'info.png';
+
+  ctx.fillStyle = text_color;
+  ctx.font = font;
+  ctx.fillText("At Hack the North, my team’s ", 60, 360);
+  ctx.fillText("SocialCRM won Best AI Agent for ", 60, 390);
+  ctx.fillText("building an end-to-end agentic system ", 60, 420);
+  ctx.fillText("that autonomously collected, analyzed,", 60, 450);
+  ctx.fillText("and reasoned over creator data. The ", 60, 480);
+  ctx.fillText("project stood out for its ability to turn ", 60, 510);
+  ctx.fillText("raw social content into structured,", 60, 540);
+  ctx.fillText("actionable insights with minimal", 60, 570);
+  ctx.fillText("human input.", 60, 600);
+
+  canvasTexture.needsUpdate = true;
+
+}
+
 const tap_sound = new Audio("tap.mp3");
 tap_sound.volume = 0.04;
 
@@ -797,7 +903,8 @@ window.addEventListener('pointerdown', (event) => {
           canvasY >= button_4.y &&
           canvasY <= button_4.y + button_4.height
         ) {
-          console.log("Button 4 clicked!");
+          state = "project_4";
+          project_4()
           tap_sound.play();
         }
 
@@ -902,6 +1009,30 @@ window.addEventListener('pointerdown', (event) => {
         ) {
           tap_sound.play();
           window.location.href = "https://devpost.com/software/scriptshield";
+        }
+
+      } else if (state === "project_4") {
+
+        if (
+          canvasX >= return_button.x - return_button.radius &&
+          canvasX <= return_button.x + return_button.radius &&
+          canvasY >= return_button.y - return_button.radius &&
+          canvasY <= return_button.y + return_button.radius
+        ) {
+          drawUI();
+          canvasTexture.needsUpdate = true;
+          state = "menu";
+          tap_sound.play();
+        }
+
+        if (
+          canvasX >= info_button.x - info_button.radius &&
+          canvasX <= info_button.x + info_button.radius &&
+          canvasY >= info_button.y - info_button.radius &&
+          canvasY <= info_button.y + info_button.radius
+        ) {
+          tap_sound.play();
+          window.location.href = "https://devpost.com/software/socialcrm";
         }
 
       } else if (state === "profile") {
@@ -1015,6 +1146,8 @@ function animate() {
   } else if (state === "project_3") {
     project_layer_3();
     ctx.drawImage(video2, 220, 75, 230, 170);
+  } else if (state === "project_4") {
+    project_layer_4();
   } else if (state === "profile") {
     profile_layer_1();
   }
